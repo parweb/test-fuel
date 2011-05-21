@@ -1,15 +1,33 @@
 <?php
 
-$link = mysql_connect('localhost:/tmp/mysql/lorilee.sock', 'amal', 'MNFDXp8a');
+if ( $_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['SERVER_NAME'] == 'localhost' ) {
+	$socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
+	
+	$user = 'root';
+	$mdp = 'root';
+	$db = 'test';
+	
+	echo __LINE__.'<br />';
+}
+else {
+	$socket = 'localhost:/tmp/mysql/lorilee.sock';
+	
+	$user = 'amal';
+	$mdp = 'MNFDXp8a';
+	$db = 'lorilee';
+	
+	echo __LINE__.'<br />';
+}
+
+$link = mysql_connect($socket, $user, $mdp);
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
 echo 'Connected successfully';
 
-mysql_select_db( 'lorilee' );
+mysql_select_db( $db );
 
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $sql = "CREATE TABLE `plop` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,7 +47,14 @@ INSERT INTO `plop` VALUES(2, 'erhijer', 'erohijerphjerh\r\ne\r\nrh\r\nerh\r\ner\
 mysql_query($sql, $link);
 
 
+$req = mysql_query( "SELECT * FROM `plop`", $link);
 
+while ( $row = mysql_fetch_assoc( $req ) ) {
+	echo '<pre>'.__FILE__.' ( '.__LINE__.' ) ';
+		print_r( $row );
+	echo '</pre>';
+}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 mysql_close($link);
