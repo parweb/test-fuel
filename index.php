@@ -1,7 +1,7 @@
 <?php
 
-mysql_connect( 'localhost:3307', 'amal', 'MNFDXp8a' ) or die ('Could not connect to mysql server.' );
-mysql_select_db( 'lorilee' );
+//mysql_connect( 'localhost:3307', 'amal', 'MNFDXp8a' ) or die ('Could not connect to mysql server.' );
+//mysql_select_db( 'lorilee' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
