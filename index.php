@@ -12,7 +12,7 @@ if ( $_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['SERVER_NAME'] == 'localho
 	echo __LINE__.'<br />';
 }
 else {
-	$socket = '/tmp/mysql/lorilee.sock';
+	$socket = 'localhost:/tmp/mysql/lorilee.sock';
 	
 	$user = 'amal';
 	$mdp = 'MNFDXp8a';
