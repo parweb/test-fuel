@@ -1,5 +1,5 @@
 php_version: 5.3.6
 
-php_extensions: [eaccelerator, mysql, mysqli]
+php_extensions: [eaccelerator, mysql, mysqli, pdo, pdo_mysql]
 
 php_display_errors: On
